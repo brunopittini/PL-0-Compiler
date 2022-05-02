@@ -1,30 +1,33 @@
 # PL-0-Compiler
 Introduction of pl0
-pl0 is similar to but much simpler than the general-purpose programming language Pascal,intend as an educational programming language. It serves as an example of how to construct a compiler.
+Pl0 is similar to the general-purpose programming language Pascal. It serves as an example of how to construct a compiler.
 
-Grammer
-program = block "." .
+To compile the Pl/0 Compiler using gcc:
 
-block = [ "const" ident "=" number {"," ident "=" number} ";"]
-        [ "var" ident {"," ident} ";"]
-        { "procedure" ident ";" block ";" } statement .
+	gcc -o compiler compiler.c -lm
 
-statement = [ ident ":=" expression | "call" ident 
-              | "?" ident | "!" expression 
-              | "begin" statement {";" statement } "end" 
-              | "if" condition "then" statement 
-              | "while" condition "do" statement ].
+To run the PL/0 Compiler, replace the "input.txt" with any input file you wish:
 
-condition = "odd" expression |
-            expression ("="|"#"|"<"|"<="|">"|">=") expression .
+	./compiler
 
-expression = [ "+"|"-"] term { ("+"|"-") term}.
+To view output files (for example, output.txt):
 
-term = factor {("*"|"/") factor}.
+	vi output.txt
 
-factor = ident | number | "(" expression ")".
-Usage
-make
-./pl0 "filepath"
-"exec the program"
-make clean
+
+
+________
+
+
+
+Lexical Analyzer/Scanner
+	Input:  input.txt
+	output: LAout.txt
+
+Parser/Code Generator
+	Input:  LAout.txt
+	Output: code.txt
+
+Virtual Machine
+	Input:  code.txt
+	Output: output.txt
