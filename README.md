@@ -1,6 +1,5 @@
 # PL-0-Compiler
-Introduction of pl0
-Pl0 is similar to the general-purpose programming language Pascal. It serves as an example of how to construct a compiler.
+PL/0 is similar to the general-purpose programming language Pascal. It serves as an example of how to construct a compiler.
 
 To compile the Pl/0 Compiler using gcc:
 
